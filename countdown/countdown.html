@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="countdown.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>new years eve</h1>
+        <div class="dte">
+            <div class="time">
+                <div class="day bigtxt" id="dy">0</div>
+                <span>days</span>
+            </div>
+            <div class="time">
+
+                <div class="hr bigtxt" id="hr">0</div>
+                <span>hour</span>
+            </div>
+            <div class="time">
+                <div class="min bigtxt" id="min">0</div>
+                <span>minutes</span>
+            </div>
+            <div class="time">
+                <div class="sec bigtxt" id="sec">0 </div>
+                <span>seconds</span>
+            </div>
+        </div>
+    </div>
+
+    <script defer>
+        function timer() {
+
+
+            let new_yer = new Date(2023, 0, 2);
+            let presentdate = new Date();
+
+
+
+            let totlsec = (new_yer - presentdate) / 1000;
+            let sec = format(Math.floor(totlsec % 60));
+            let min = Math.floor((totlsec / 60) % 60);
+
+            let hr = format(Math.floor((totlsec / 3600) % 24));
+            let dy = Math.floor((totlsec / 3600) / 24);
+
+
+            document.getElementById('sec').innerHTML = sec;
+            document.getElementById('min').innerHTML = min;
+            document.getElementById('hr').innerHTML = hr;
+            document.getElementById('dy').innerHTML = dy;
+        }
+
+        function format(time) {
+            var str
+            if (time < 10) {
+                str = '0' + time
+
+            } else {
+                str = time;
+            }
+            return str
+        };
+        setInterval(timer, 1000);
+    </script>
+
+
+</body>
+
+
+
+</html>
